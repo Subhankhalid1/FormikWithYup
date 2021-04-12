@@ -5,14 +5,18 @@ import './App.css';
 // import SignupForms from './components/SignupForm';
 // import MainuForms from './components/MainuForms'
 import StepperX from './steppers/Stepper'
+import Header from './components/Header/Header.jsx'
+import Footer from './components/Footer/Footer.jsx'
 function App() {
   return (
-    <div className="App">
-<StepperX/>
+    <div className="App" >
+      <Header />
+      <StepperX />
+      <Footer />
       {/* <SignupForms />
       <LoginForms />
       <MainuForms /> */}
-      <br />
+
     </div>
   );
 }

@@ -1,0 +1,63 @@
+.header-container {
+    height: auto!important;
+}
+
+.step-circle {
+    border: 3px solid gray;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.circle-text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.get-help-span {
+    margin-left: .5rem;
+}
+
+.right-side-text:nth-child(2) {
+    margin-right: 1rem;
+}
+
+.mad {
+    margin-left: 8rem;
+    font-weight: 400;
+    font-size: larger;
+}
+
+.net {
+    color: rgb(65 121 164);
+    font-size: larger;
+}
+
+.active {
+    background-color: #1371e3;
+    border: 1px solid #1371e3;
+}
+
+.active-text {
+    color: #1371e3!important;
+}
+
+@media (min-width:0px) and (max-width:767px) {
+    .get-help-span, .fa-question-circle-o, .fa-sign-out, .fa-language, .right-side-text {
+        font-size: small;
+    }
+    .right-side-text:nth-child(2) {
+        margin-right: .5rem;
+    }
+    .dark-section {
+        flex-direction: column;
+    }
+    .mad {
+        margin-left: 0rem;
+        font-weight: 400;
+        font-size: larger;
+    }
+    .help {
+        display: none;
+    }
+}

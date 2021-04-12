@@ -1,0 +1,100 @@
+.footer-container {
+    background-color: #a6adb4!important;
+    height: auto;
+}
+
+.p-content {
+    font-size: 13px!important;
+    font-weight: 400;
+    margin-bottom: 1px;
+}
+
+.flex-box:nth-child(3) {
+    width: 60%;
+    padding-left: 2rem;
+}
+
+.flex-box:nth-child(2) {
+    width: 30%;
+    padding-left: 1rem;
+}
+
+.flex-box:nth-child(1) {
+    width: 25%;
+    padding-right: 1rem;
+}
+
+@media (min-width:901px) and (max-width:1130px) {
+    .flex-box:nth-child(2) {
+        width: 50%;
+        padding-left: 1rem;
+    }
+    .flex-box:nth-child(1) {
+        width: 35%;
+        padding-right: 1rem;
+    }
+}
+
+@media (min-width:768px) and (max-width:900px) {
+    .flex-box:nth-child(2) {
+        width: 50%;
+        padding-left: 1rem;
+    }
+    .flex-box:nth-child(1) {
+        width: 35%;
+        padding-right: 1rem;
+    }
+    .footer-container {
+        flex-direction: column;
+        justify-content: center!important;
+        align-items: center!important;
+    }
+    .flex-box:nth-child(3) {
+        width: 70%;
+        padding-left: 2rem;
+        padding: 1rem 1rem 0rem 0rem;
+        text-align: left!important;
+    }
+    .flex-box:nth-child(2) {
+        width: 70%;
+        padding-left: 1rem;
+        padding: 1rem 0rem 1rem 0rem;
+    }
+    .flex-box:nth-child(1) {
+        width: 70%;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width:0px) and (max-width:767px) {
+    .flex-box:nth-child(2) {
+        width: 50%;
+        padding-left: 1rem;
+    }
+    .flex-box:nth-child(1) {
+        width: 35%;
+        padding-right: 1rem;
+    }
+    .footer-container {
+        flex-direction: column;
+        justify-content: center!important;
+        align-items: center!important;
+    }
+    .flex-box:nth-child(3) {
+        width: 100%;
+        padding-left: 2rem;
+        padding: 1rem 1rem 0rem 0rem;
+        text-align: left!important;
+    }
+    .flex-box:nth-child(2) {
+        width: 100%;
+        padding-left: 1rem;
+        padding: 1rem 0rem 1rem 0rem;
+    }
+    .flex-box:nth-child(1) {
+        width: 100%;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+    }
+}

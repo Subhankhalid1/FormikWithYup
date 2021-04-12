@@ -1,0 +1,105 @@
+.circle-section {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    background-color: white;
+}
+
+.divider-line {
+    border: 1px solid gray;
+    height: 1.1rem;
+    width: 1px;
+    position: absolute;
+    top: 1.2rem;
+}
+
+.circle-parent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.data {
+    font-size: smaller;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: .5rem;
+}
+
+/* left section end */
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-500 {
+    font-weight: 500;
+}
+
+.text-justify {
+    text-align: justify!important;
+}
+
+.desc-btns {
+    border: 1px solid gray;
+    padding: .5rem;
+    border-radius: 10px;
+    background-color: white;
+    transition: .3s;
+}
+
+.desc-btns:hover {
+    border: 1px solid blue;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+.desc-btns:nth-child(2) {
+    margin-left: 1.5rem;
+}
+
+.right-main {
+    height: 32rem;
+}
+
+.section-right-1 {
+    height: 88%;
+    overflow-y: auto;
+}
+
+.section-right-1::-webkit-scrollbar {
+    width: 5px;
+}
+
+.section-right-1::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+}
+
+.modal-content {
+    border-radius: 1rem;
+}
+
+.cross-span {
+    border: 1px solid gray;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.paragraph-padding {
+    padding-right: 1rem;
+}
+
+@media (min-width: 843px) and (max-width: 1121px) {
+    .left-main-container {
+        border: 1px solid red!important;
+    }
+}

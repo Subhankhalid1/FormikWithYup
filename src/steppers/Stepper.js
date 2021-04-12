@@ -5,16 +5,22 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import LoginForms from '../components/LoginFormikWithYup'
-import SignupForms from '../components/SignupForm'
-import MainuForms from '../components/MainuForms'
-
+// import LoginForms from '../components/LoginFormikWithYup'
+// import SignupForms from '../components/SignupForm'
+// import MainuForms from '../components/MainuForms.js'
+import Introduction from '../components/Introduction/Introduction.jsx'
+import Description from '../components/Description/Description';
+import Confirm from '../components/Confirmation/Confirm';
+import Thankyou from '../components/ThankYou/Thankyou';
+import Signature from '../components/Signature/Signature.jsx';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+
+
   },
   backButton: {
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(0),
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -23,19 +29,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['Step 1 out of 3', 'Step 2 out of 3', 'Step 3 out of 3'];
+  return ['Introduction', 'Description', 'Conformation', 'Signature', 'Submission'];
 }
 
 function getStepContent(stepIndex, handleNext) {
   switch (stepIndex) {
     case 0:
-      return <SignupForms handleNext={handleNext}/>;
+      return <Introduction handleNext={handleNext} />
     case 1:
-      return <LoginForms handleNext={handleNext}/>;
+      return <Description handleNext={handleNext} />
     case 2:
-      return <MainuForms handleNext={handleNext}/>;
+      return <Confirm handleNext={handleNext} />
+    case 3:
+      return <Signature handleNext={handleNext} />
+    case 4:
+      return <Thankyou handleNext={handleNext} />
     default:
-      return 'Unknown stepIndex';
+      return 'Something went wrong.';
   }
 }
 
@@ -45,7 +55,7 @@ export default function StepperX() {
   const steps = getSteps();
 
   const handleNext = () => {
-      console.log("Clicking Next")
+    console.log("Clicking Next")
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -53,12 +63,16 @@ export default function StepperX() {
     setActiveStep(0);
   };
 
+  const handleBack = () => {
+    setActiveStep(activeStep-1);
+  };
+
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper activeStep={activeStep} alternativeLabel >
         {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+          <Step >
+            <StepLabel ><div key={label} >{label}</div></StepLabel>
           </Step>
         ))}
       </Stepper>
@@ -70,8 +84,8 @@ export default function StepperX() {
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep,handleNext)}</Typography>
-            {/* <div>
+            <Typography className={classes.instructions}>{getStepContent(activeStep, handleNext)}</Typography>
+            <div>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -82,7 +96,7 @@ export default function StepperX() {
               <Button variant="contained" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
-            </div> */}
+            </div>
           </div>
         )}
       </div>

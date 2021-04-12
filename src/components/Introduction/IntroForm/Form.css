@@ -1,0 +1,113 @@
+.form-heading {
+    font-weight: 700;
+}
+
+.input {
+    border-radius: 10px!important;
+    padding: 10px;
+    width: 60%;
+}
+
+.form-btn {
+    width: 8rem!important;
+    border-radius: 10px!important;
+}
+
+.fa-chevron-left {
+    color: blue;
+    margin-right: .5rem;
+}
+
+.main-area-section1 {
+    padding-right: 8rem!important;
+}
+
+/* previous css */
+
+.main-area-section-form:nth-child(1) {
+    display: flex;
+    justify-content: left;
+    width: 30%;
+}
+
+.main-area-section-form:nth-child(2) {
+    width: 60%;
+    padding: 7.5rem 7.5rem 5rem 0px;
+}
+
+.welcome-heading {
+    font-weight: 300;
+}
+
+.fa-exclamation-triangle {
+    margin-left: 10px;
+}
+
+.error-span {
+    font-size: medium;
+}
+
+@media (min-width:768px) and (max-width:900px) {
+    .input {
+        width: 90%!important;
+    }
+    .error-span {
+        font-size: smaller;
+    }
+    .main-area-section-form:nth-child(2) {
+        width: 60%;
+        padding: 7.5rem 3rem 5rem 0px;
+    }
+}
+
+@media (min-width:901px) and (max-width:1340px) {
+    .input {
+        width: 60%!important;
+    }
+    .error-span {
+        font-size: smaller;
+    }
+    .main-area-section-form:nth-child(2) {
+        width: 70%;
+        padding: 7.5rem 0rem 5rem 0px;
+    }
+    .age {
+        width: 20%!important;
+    }
+}
+
+@media (min-width:0px) and (max-width:767px) {
+    .welcome-sub-section-form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-area-section-form:nth-child(2) {
+        width: 100%;
+        padding: 2rem 0rem 2rem 0px;
+    }
+    .main-area-section-form:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .heading {
+        text-align: center!important;
+    }
+    .input-field {
+        align-items: center!important;
+    }
+    .main-welcome {
+        padding-left: 1rem!important;
+        padding-right: 1rem!important;
+    }
+    .input {
+        width: 80%;
+    }
+    .age {
+        width: 80%!important;
+    }
+    .error-span {
+        font-size: smaller;
+    }
+}

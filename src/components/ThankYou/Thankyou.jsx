@@ -4,8 +4,8 @@ import "./Thankyou.css";
 
 const Thankyou = () => {
     return (
-        <div className="px-2 thnkyou-main container">
-            <section className="d-flex flex-row-reverse justify-content-between thankyou-sub-section welcome-sub-section">
+        <div className="px-5 thnkyou-main">
+            <section className="border d-flex flex-row-reverse justify-content-between thankyou-sub-section welcome-sub-section">
                 <div className="main-area-section-thankyou">
                     <img src={pic} alt="" />
                 </div>

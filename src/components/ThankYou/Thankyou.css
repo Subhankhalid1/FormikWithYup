@@ -11,6 +11,7 @@
 
 @media (min-width:0px) and (max-width:767px) {
     .thankyou-sub-section {
+        border: 1px solid red;
         flex-direction: column!important;
     }
     .main-area-section-thankyou:nth-child(2) {

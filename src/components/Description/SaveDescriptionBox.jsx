@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Modal, Button } from "react-bootstrap";
 import DescriptionButtons from "./DescriptionButtons"
+import { GlobalContext } from "../ContextAPI/Context";
 
 
 function CenteredModal(props) {
+    const [email, setEmail] = useState("");
+    const { handleNext } = useContext(GlobalContext);
+
+    // const submitData = (event) => {
+    //     event.preventDefault();
+    //     alert();
+    //     if (email !== "") handleNext();
+    // }
+
     return <>
         <Modal
             {...props}
@@ -21,25 +31,26 @@ function CenteredModal(props) {
                         Please enter your email to continue your informed consent later
                         or on another device
                     </p>
-                    <input type="email" className="form-control w-75 mx-auto mb-4" placeholder="Your Email" />
-                    <Button className="w-25 mb-5" style={{ borderRadius: "10px" }}>Submit</Button>
+                    <input onchange={(e) => setEmail(e.target.value)} type="email" className="form-control w-75 mx-auto mb-4" required placeholder="Your Email" />
+                    <Button onClick={handleNext} className="w-25 mb-5" style={{ borderRadius: "10px" }}>Submit</Button>
                 </div>
             </div>
         </Modal>
     </>
 }
 
-function SaveDescriptionBox({ pageItemDataForButtons }) {
+function SaveDescriptionBox() {
     const [modalShow, setModalShow] = React.useState(false);
 
     const openModal = () => setModalShow(true);
+    const closeModal = () => setModalShow(false);
 
     return <>
         <CenteredModal
             show={modalShow}
             onHide={() => setModalShow(false)}
         />
-        <DescriptionButtons openModal={openModal} pageItemDataForButtons={pageItemDataForButtons} />
+        <DescriptionButtons openModal={openModal} />
     </>
 }
 

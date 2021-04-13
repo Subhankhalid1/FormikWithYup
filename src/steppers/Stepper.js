@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -13,6 +13,7 @@ import Description from '../components/Description/Description';
 import Confirm from '../components/Confirmation/Confirm';
 import Thankyou from '../components/ThankYou/Thankyou';
 import Signature from '../components/Signature/Signature.jsx';
+import { GlobalContext } from "../components/ContextAPI/Context";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -32,18 +33,18 @@ function getSteps() {
   return ['Introduction', 'Description', 'Conformation', 'Signature', 'Submission'];
 }
 
-function getStepContent(stepIndex, handleNext) {
+function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return <Introduction handleNext={handleNext} />
+      return <Introduction />
     case 1:
-      return <Description handleNext={handleNext} />
+      return <Description />
     case 2:
-      return <Confirm handleNext={handleNext} />
+      return <Confirm />
     case 3:
-      return <Signature handleNext={handleNext} />
+      return <Signature />
     case 4:
-      return <Thankyou handleNext={handleNext} />
+      return <Thankyou />
     default:
       return 'Something went wrong.';
   }
@@ -51,21 +52,8 @@ function getStepContent(stepIndex, handleNext) {
 
 export default function StepperX() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
-
-  const handleNext = () => {
-    console.log("Clicking Next")
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
-  const handleBack = () => {
-    setActiveStep(activeStep-1);
-  };
+  const { activeStep } = useContext(GlobalContext);
 
   return (
     <div className={classes.root}>
@@ -76,29 +64,9 @@ export default function StepperX() {
           </Step>
         ))}
       </Stepper>
+
       <div>
-        {activeStep === steps.length ? (
-          <div>
-            <Typography className={classes.instructions}>All steps completed</Typography>
-            <Button onClick={handleReset}>Reset</Button>
-          </div>
-        ) : (
-          <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep, handleNext)}</Typography>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.backButton}
-              >
-                Back
-              </Button>
-              <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
-            </div>
-          </div>
-        )}
+        <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
       </div>
     </div>
   );

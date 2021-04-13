@@ -2,13 +2,13 @@ import React from 'react';
 import "./Header.css";
 
 const Header = () => {
-    // const steps = [
-    //     { title: "Introduction", active: true, complete: false },
-    //     { title: "Description", active: false, complete: false },
-    //     { title: "Confirmation", active: false, complete: false },
-    //     { title: "Signature", active: false, complete: false },
-    //     { title: "Submission", active: false, complete: false },
-    // ]
+    const steps = [
+        { title: "Introduction", active: true, complete: false },
+        { title: "Description", active: false, complete: false },
+        { title: "Confirmation", active: false, complete: false },
+        { title: "Signature", active: false, complete: false },
+        { title: "Submission", active: false, complete: false },
+    ]
     return (
         <div className="bg-white shadow-sm rounded header-container">
 
@@ -21,7 +21,7 @@ const Header = () => {
                     <span className="mad">MED<span className="net">net</span></span>
                 </div>
                 <div className="d-flex justify-content-end align-items-center">
-                    <i className="fa fa-globe mx-2"></i>
+                    <i className="fa fa-language mx-2"></i>
                     <span className="right-side-text">Espanol</span>
                     <span className="mx-2 right-side-text">Log Out</span>
                     <i className="fa fa-sign-out"></i>
@@ -31,7 +31,7 @@ const Header = () => {
             {/* <section className=" bg-white d-flex py-2 justify-content-center align-items-center">
                 {
                     steps && steps.map((item, index) => {
-                        return <div key={index}>
+                        return <>
                             <section className="px-3 d-flex justify-content-center align-items-center flex-column">
                                 <div className={item.active ? "step-circle mb-1 active d-flex justify-content-center align-items-center" : "step-circle mb-1 d-flex justify-content-center align-items-center"}>
                                     <div className={item.active ? "d-block" : "d-none"} style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "white" }}></div>
@@ -39,7 +39,7 @@ const Header = () => {
                                 </div>
                                 <span className={item.active ? "circle-text text-muted active-text" : "circle-text text-muted"}>{item.title}</span>
                             </section>
-                        </div>
+                        </>
                     })
                 }
             </section> */}

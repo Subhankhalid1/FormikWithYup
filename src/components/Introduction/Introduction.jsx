@@ -1,29 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Welcome from './Welcome/Welcome';
 import Form from './IntroForm/Form';
-import { API, Token } from "../API/API";
 
 const Introduction = () => {
-    const [pagesData, setData] = useState({});
+    const [component, setComponent] = useState(1);
 
-    useEffect(() => {
-        fetch(`${API}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${Token}`
-            },
-        }).then(res => res.json())
-            .then(data => {
-                const filterData = data.items.filter(item => { return item.data.moduleType.iv === "welcome" })
-                setData(filterData);
-            }, [])
-    });
-
+    const changePage = (page) => {
+        setComponent(page);
+    }
     return (
         <div>
-            <Welcome pageData={pagesData.length > 0 && pagesData[0]} />
-            <Form />
+            {component === 1 && <Welcome changePage={changePage} />}
+            {component === 2 && <Form changePage={changePage} />}
         </div>
     )
 }

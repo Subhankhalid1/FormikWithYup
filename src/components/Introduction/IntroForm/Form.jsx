@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import pic from "../Welcome/img/pic.png";
 import "./Form.css";
+import { GlobalContext } from "../../ContextAPI/Context";
 
-const Form = () => {
+const Form = ({ changePage }) => {
+    const { handleNext } = useContext(GlobalContext);
     const [information, setInformation] = useState({
-        name: '',
-        email: ''
+        name: null,
+        email: null
     });
 
     const [authName, setName] = useState(false);
@@ -13,10 +15,11 @@ const Form = () => {
 
     const submitData = (event) => {
         event.preventDefault();
-        if (information.name === '') setName(true);
-        if (information.email === '') setEmail(true);
-        if (information.name !== '') setName(false);
-        if (information.email !== '') setEmail(false);
+        if (information.name === null) setName(true);
+        if (information.email === null) setEmail(true);
+        if (information.name !== null) setName(false);
+        if (information.email !== null) setEmail(false);
+        if (information.email !== null && information.name !== null) handleNext();
     }
 
     return (
@@ -33,10 +36,10 @@ const Form = () => {
                         <input onChange={(e) => setInformation({ ...information, name: e.target.value })} style={{ position: "relative", right: "0" }} type="text" className="form-control input mt-3 rounded" placeholder="Your Name" />
                         <input onChange={(e) => setInformation({ ...information, email: e.target.value })} type="email" className="form-control input mt-2" placeholder="Your Email" />
 
-                        <div className="form-group mt-2 age d-flex justify-content-end align-items-end" style={{ width: "5rem" }}>
-                            <select defaultValue="Age" className="form-control w-100 input" placeholder="Age">
+                        <div class="form-group mt-2 age d-flex justify-content-end align-items-end" style={{ width: "5rem" }}>
+                            <select class="form-control w-100 input" placeholder="Age">
                                 <i className="fa fa-ceret-down"></i>
-                                <option disabled>Age</option>
+                                <option selected disabled>Age</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -48,19 +51,19 @@ const Form = () => {
                             authName &&
                             <div className="input mt-3 bg-white text-danger error-span">
                                 <span>Legally Authorized Representative Name</span>
-                                <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                             </div>
                         }
                         {
                             authEmail &&
                             <div className="input mt-2 bg-white text-danger error-span">
                                 <span>Legally Authorized Representative Email </span>
-                                <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                             </div>
                         }
                         <div className="d-flex mt-5 align-items-center justify-content-end">
                             <i className="fa fa-chevron-left"></i>
-                            <a href="" style={{ marginRight: "2rem" }}>Back</a>
+                            <a onClick={() => changePage(1)} style={{ marginRight: "2rem" }}>Back</a>
                             <button onClick={submitData} className="btn btn-primary rounded form-btn">Submit</button>
                         </div>
                     </div>

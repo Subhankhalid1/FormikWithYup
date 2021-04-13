@@ -7,16 +7,18 @@ import './App.css';
 import StepperX from './steppers/Stepper'
 import Header from './components/Header/Header.jsx'
 import Footer from './components/Footer/Footer.jsx'
+import MainContext from './components/ContextAPI/Context';
 function App() {
   return (
     <div className="App" >
-      <Header />
-      <StepperX />
-      <Footer />
-      {/* <SignupForms />
-      <LoginForms />
-      <MainuForms /> */}
-
+      <MainContext>
+        <Header />
+        <StepperX />
+        <Footer />
+        {/* <SignupForms />
+        <LoginForms />
+        <MainuForms /> */}
+      </MainContext>
     </div>
   );
 }
